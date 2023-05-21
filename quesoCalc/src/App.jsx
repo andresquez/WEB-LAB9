@@ -1,9 +1,15 @@
-import './App.css';
+import './App.scss';
 import React from 'react';
+import Calculator from './components/Calculator/Calculator';
 
 function App() {
   return (
-    <div />
+    <div>
+      <div id="spacer_v" />
+      <div className="title">quesoCalc</div>
+      <div id="spacer_v" />
+      <Calculator />
+    </div>
   );
 }
 

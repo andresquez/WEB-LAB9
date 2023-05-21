@@ -1,0 +1,193 @@
+.key {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    pointer-events: all;
+    transition: 0.2s;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  .key p {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    font-size: 30px;
+  }
+  
+  .key:hover {
+    background-color: #0000006e;
+  }
+  
+  .key:active {
+    background-color: #0000001e;
+  }
+  
+  .cBody {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: block;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    top: 10%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
+    overflow: hidden;
+  }
+  
+  .cBody .cGrid {
+    position: relative;
+    display: -ms-grid;
+    display: grid;
+    width: 100%;
+    height: 90%;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "keyC keyModulus keyPlusMinus keyDivide"
+      "key7 key8 key9 keyMult"
+      "key4 key5 key6 keyMinus"
+      "key1 key2 key3 keyPlus"
+      "key0 key0 keyDot keyEqual";
+  }
+  
+  .cBody .cScreen {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 12.5%;
+  }
+  
+  .cBody .cScreen .cValue {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-top: 2.5%;
+    padding-left: 12.5%;
+    margin: 0 auto;
+    font-size: 55px;
+    text-align: center;
+    opacity: 85%;
+  }
+  
+  .keyC {
+    grid-row: 1;
+    grid-column: 1;
+    grid-area: keyC;
+  }
+  
+  .keyModulus {
+    grid-row: 1;
+    grid-column: 2;
+    grid-area: keyModulus;
+  }
+    
+  .keyPlusMinus {
+    grid-row: 1;
+    grid-column: 3;
+    grid-area: keyPlusMinus;
+  }
+  
+  .keyDivide {
+    grid-row: 1;
+    grid-column: 4;
+    grid-area: keyDivide;
+  }
+    
+  .key7 {
+    grid-row: 2;
+    grid-column: 1;
+    grid-area: key7;
+  }
+  
+  .key8 {
+    grid-row: 2;
+    grid-column: 2;
+    grid-area: key8;
+  }
+  
+  .key9 {
+    grid-row: 2;
+    grid-column: 3;
+    grid-area: key9;
+  }
+  
+  .keyMult {
+    grid-row: 2;
+    grid-column: 4;
+    grid-area: keyMult;
+  }
+  
+  .key4 {
+    grid-row: 3;
+    grid-column: 1;
+    grid-area: key4;
+  }
+  
+  .key5 {
+    grid-row: 3;
+    grid-column: 2;
+    grid-area: key5;
+  }
+  
+  .key6 {
+    grid-row: 3;
+    grid-column: 3;
+    grid-area: key6;
+  }
+  
+  .keyMinus {
+    grid-row: 3;
+    grid-column: 4;
+    grid-area: keyMinus;
+  }
+  
+  .key1 {
+    grid-row: 4;
+    grid-column: 1;
+    grid-area: key1;
+  }
+  
+  .key2 {
+    grid-row: 4;
+    grid-column: 2;
+    grid-area: key2;
+  }
+  
+  .key3 {
+    grid-row: 4;
+    grid-column: 3;
+    grid-area: key3;
+  }
+  
+  .keyPlus {
+    grid-row: 4;
+    grid-column: 4;
+    grid-area: keyPlus;
+  }
+  
+  .key0 {
+    grid-row: 5;
+    grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: key0;
+  }
+  
+  .keyDot {
+    grid-row: 5;
+    grid-column: 3;
+    grid-area: keyDot;
+  }
+  
+  .keyEqual {
+    grid-row: 5;
+    grid-column: 4;
+    grid-area: keyEqual;
+  }
+  
