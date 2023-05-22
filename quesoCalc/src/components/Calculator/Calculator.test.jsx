@@ -1,9 +1,10 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-undef */
-/* @jest-environment jsdom */
-
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import {
+  render, screen, fireEvent,
+} from '@testing-library/react';
+import {
+  beforeEach, describe, it, expect,
+} from 'vitest';
 import Calculator from './Calculator';
 
 describe('App', () => {
@@ -17,6 +18,7 @@ describe('App', () => {
     expect(TodoElement).toBeInTheDocument();
   });
 
+  // Test 2 + 2 = 4
   it('Test addition', () => {
     const app = render(<Calculator />);
     const value = app.getByTestId('test-value');
@@ -31,6 +33,7 @@ describe('App', () => {
     expect(value.innerHTML).toBe('6');
   });
 
+  // Test 9 - 2 = 7
   it('Test substraction', () => {
     const app = render(<Calculator />);
     const value = app.getByTestId('test-value');
@@ -45,6 +48,7 @@ describe('App', () => {
     expect(value.innerHTML).toBe('7');
   });
 
+  // Test 5 * 6 = 30
   it('Test multiplication', () => {
     const app = render(<Calculator />);
     const value = app.getByTestId('test-value');
@@ -73,6 +77,7 @@ describe('App', () => {
     expect(value.innerHTML).toBe('4');
   });
 
+  // Test 7 % 7 = 0
   it('Test modulus', () => {
     const app = render(<Calculator />);
     const value = app.getByTestId('test-value');
@@ -87,6 +92,7 @@ describe('App', () => {
     expect(value.innerHTML).toBe('0');
   });
 
+  // Test 3 +/- = -3
   it('Test plus-minus', () => {
     const app = render(<Calculator />);
     const value = app.getByTestId('test-value');
@@ -97,6 +103,7 @@ describe('App', () => {
     expect(value.innerHTML).toBe('-3');
   });
 
+  // Test 999999999 * 300 = error
   it('Test 9 char limit by multiplication', () => {
     const app = render(<Calculator />);
     const value = app.getByTestId('test-value');
@@ -106,7 +113,7 @@ describe('App', () => {
     const opperation = app.getByTestId('test-btn-mul');
     const equal = app.getByTestId('test-btn-equal');
 
-    for (let i = 1; i < 9; ++i) {
+    for (let i = 1; i < 9; i += 1) {
       fireEvent.click(firstNum);
     }
 
@@ -118,17 +125,19 @@ describe('App', () => {
     expect(value.innerHTML).toBe('error'); // el resultado supera los 9 digitos
   });
 
+  // Test 555555555 stay on 9 digits
   it('Test 9 char limit by tpying', () => {
     const app = render(<Calculator />);
     const value = app.getByTestId('test-value');
     const firstNum = app.getByTestId('test-btn-5');
 
-    for (let i = 0; i <= 10; ++i) {
+    for (let i = 0; i <= 10; i += 1) {
       fireEvent.click(firstNum);
     }
     expect(value.innerHTML).toBe('555555555'); // no registra el decimo char
   });
 
+  // Test 3 - 4 = error
   it('Test negative result', () => {
     const app = render(<Calculator />);
     const value = app.getByTestId('test-value');
@@ -143,6 +152,7 @@ describe('App', () => {
     expect(value.innerHTML).toBe('error');
   });
 
+  // Test 22 / 7 = 3.14
   it('Test fraction result', () => {
     const app = render(<Calculator />);
     const value = app.getByTestId('test-value');
@@ -158,6 +168,7 @@ describe('App', () => {
     expect(value.innerHTML).toBe('3.14');
   });
 
+  // Test 0.5 * 4 = 2
   it('Test dot/fraction operation', () => {
     const app = render(<Calculator />);
     const value = app.getByTestId('test-value');
@@ -173,6 +184,6 @@ describe('App', () => {
     fireEvent.click(opperation);
     fireEvent.click(secondNum);
     fireEvent.click(equal);
-    expect(value.innerHTML).toBe('2'); // 0.5 times 4 = 2
+    expect(value.innerHTML).toBe('2');
   });
 });
